@@ -1,0 +1,31 @@
+:root {
+    --color-blue: #2980b9;
+    --color-green: #2ecc71;
+    --color-red: #e74c3c;
+    --color-white: #fff;
+    --color-yellow: #f1c40f;
+
+    --disabled-opacity: 0.35;
+
+    --message-foreground-color: #fff;
+
+    --modal-background-color: rgba(0, 0, 0, 0.35);
+
+    --notifier-foreground-color: #fff;
+    --notifier-highlight-color: rgba(0, 0, 0, 0.2);
+
+    --placeholder-opacity: 0.35;
+
+    --sidebar-background-color: #333;
+    --sidebar-foreground-color: #eee;
+    --sidebar-highlight-color: #444;
+    --sidebar-top-background-color: #444;
+    --sidebar-badge-background-color: #555;
+    --sidebar-badge-highlight-color: #666;
+
+    --toolbar-background-color: #2980b9;
+    --toolbar-foreground-color: #fff;
+    --toolbar-highlight-color: rgba(255, 255, 255, 0.25);
+    --toolbar-input-background-color: #fff;
+    --toolbar-input-foreground-color: #222;
+}

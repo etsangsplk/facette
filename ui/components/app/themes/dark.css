@@ -1,0 +1,34 @@
+:root {
+    --dark-main-background-color: #222;
+    --dark-main-foreground-color: #eee;
+    --dark-main-foreground-color-light: #444;
+    --dark-main-foreground-color-medium: #aaa;
+
+    --dark-actionbar-background-color: #333;
+    --dark-actionbar-highlight-color: #555;
+
+    --dark-button-background-color: #444;
+    --dark-button-foreground-color: #eee;
+    --dark-button-highlight-color: #666;
+
+    --dark-dropdown-background-color: #333;
+    --dark-dropdown-foreground-color: #eee;
+    --dark-dropdown-shadow: 0 0.15rem 0.5rem rgba(17, 17, 17, 0.65);
+    --dark-dropdown-divider-background-color: #444;
+
+    --dark-graph-cursor-background-color: #aaa;
+
+    --dark-input-background-color: #333;
+    --dark-input-border-color: #444;
+
+    --dark-modal-shadow: 0 0.15rem 0.5rem rgba(17, 17, 17, 0.75);
+
+    --dark-sidepane-background-color: rgba(0, 0, 0, 0.5);
+    --dark-sidepane-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.9);
+
+    --dark-spinner-background-color: rgba(255, 255, 255, 0.1);
+
+    --dark-tooltip-background-color: rgba(51, 51, 51, 0.95);
+    --dark-tooltip-foreground-color: #eee;
+    --dark-tooltip-foreground-color-medium: #aaa;
+}

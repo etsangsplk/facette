@@ -14,18 +14,14 @@ GOARCH ?= $(shell $(GO) env GOARCH)
 
 BUILD_NAME = facette-$(GOOS)-$(GOARCH)
 BUILD_DIR = build/$(BUILD_NAME)
-BUILD_ENV ?= production
 
 export GOPATH = $(realpath $(BUILD_DIR)):$(realpath $(BUILD_DIR))/vendor
 
 GOLINT ?= golint
 GOLINT_ARGS =
 
-NPM ?= npm
-NPM_ARGS =
-
-GULP ?= node_modules/.bin/gulp
-GULP_ARGS = --no-color
+YARN ?= yarn
+YARN_ARGS =
 
 PANDOC ?= pandoc
 PANDOC_ARGS = --standalone --to man
@@ -44,7 +40,7 @@ all: build
 
 clean:
 	@$(call mesg_start,clean,Removing build data...)
-	@rm -rf $(BUILD_DIR) src/cmd/facette/bindata.go && \
+	@rm -rf $(BUILD_DIR) src/cmd/facette/bindata.go yarn-error.log && \
 		$(call mesg_ok) || $(call mesg_fail)
 	@rmdir build 2>/dev/null || true
 
@@ -86,7 +82,7 @@ endif
 
 build-assets: node_modules
 	@$(call mesg_start,build,Building assets...)
-	@BUILD_DIR=$(BUILD_DIR) $(GULP) $(GULP_ARGS) build --env $(BUILD_ENV) >/dev/null && \
+	@BUILD_DIR=$(BUILD_DIR) $(YARN) $(YARN_ARGS) build >/dev/null && \
 		$(call mesg_ok) || $(call mesg_fail)
 
 build-docs:
@@ -141,17 +137,12 @@ lint-bin:
 
 lint-assets:
 	@$(call mesg_start,lint,Checking assets sources...)
-	@BUILD_DIR=$(BUILD_DIR) $(GULP) $(GULP_ARGS) lint && \
-		$(call mesg_ok) || $(call mesg_fail)
-
-update-locales:
-	@$(call mesg_start,locale,Updating locale files...)
-	@BUILD_DIR=$(BUILD_DIR) $(GULP) $(GULP_ARGS) update-locales >/dev/null && \
+	@BUILD_DIR=$(BUILD_DIR) $(YARN) $(YARN_ARGS) run lint && \
 		$(call mesg_ok) || $(call mesg_fail)
 
 node_modules:
 	@$(call mesg_start,build,Retrieving assets build dependencies...)
-	@$(NPM) $(NPM_ARGS) install --package-lock=false >/dev/null && \
+	@$(YARN) $(YARN_ARGS) install >/dev/null && \
 		$(call mesg_ok) || $(call mesg_fail)
 
 docker:

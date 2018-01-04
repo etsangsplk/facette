@@ -1,6 +1,5 @@
 /build
+/dist
 /node_modules
-/package-lock.json
-/pkg
-/vendor/pkg
 bindata.go
+yarn-error.log
